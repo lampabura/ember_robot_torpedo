@@ -1,1 +1,5 @@
-# ember_robot_torpedo
+# Torpedo
+
+## Requirements
+- python 3+
+- numpy
