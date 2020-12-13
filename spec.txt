@@ -1,0 +1,5 @@
+Az általunk válaszott feladatban két robot játszana egymás ellen torpedóval. A robotok rendelkeznének saját stratégiával, 
+ami alapján lehelyezik a saját hajóikat, illetve választanak célpontokat. A játék során a sikeres / elvétett találatokra is reagálnának egyszerűbb animációkkal.
+
+A megvalósítás során a robotok TCP kapcsolaton kereszült kommunikálnának, illetve egyszerű GUI segítségével lehetne a felhasználó számára nyomon követni az eseményeket.
+A játék egy egyszerűsített 5x5-ös pályát használna, amin 3 hajót kellene elhelyezni mindkét félnek.
