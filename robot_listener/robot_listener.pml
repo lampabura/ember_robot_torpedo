@@ -5,7 +5,11 @@
         <BehaviorDescription name="behavior" src="behavior_1" xar="behavior.xar" />
     </BehaviorDescriptions>
     <Dialogs />
-    <Resources />
+    <Resources>
+        <File name="move" src="behavior_1/move.pmt" />
+        <File name="camera1" src="behavior_1/camera1.ogg" />
+        <File name="heaven1" src="behavior_1/behavior_1/heaven1.ogg" />
+    </Resources>
     <Topics />
     <IgnoredPaths />
     <Translations auto-fill="en_US">

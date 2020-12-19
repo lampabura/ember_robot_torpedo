@@ -1,0 +1,56 @@
+import socket
+import sys
+
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def __del__(self):
+        self.sock.close()
+
+    def onLoad(self):
+        #put initialization code here
+        # Create a TCP/IP socket
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server_address = ('localhost', 65318)
+        print >>sys.stderr, 'starting up on %s port %s' % server_address
+        self.sock.bind(server_address)
+        self.sock.listen(1)
+
+    def onUnload(self):
+        #put clean-up code here
+        self.sock.close()
+
+    def onInput_onStart(self):
+        #self.onStopped() #activate the output of the box
+
+        # Wait for a connection
+        print >>sys.stderr, 'waiting for a connection'
+        connection, client_address = self.sock.accept()
+        print >>sys.stderr, 'connected'
+        try:
+            print >>sys.stderr, 'connection from', client_address
+
+            # Receive the data in small chunks and retransmit it
+            while True:
+                data = connection.recv(16)
+                print >>sys.stderr, 'received "%s"' % data
+                if data:
+                    print >>sys.stderr, 'sending data back to the client'
+                    connection.sendall(data)
+                    self.onMessage(data)
+                    self.onStopped()
+                else:
+                    print >>sys.stderr, 'no more data from', client_address
+                    break
+
+        finally:
+            # Clean up the connection
+            connection.close()
+            # self.sock.close()
+        #pass
+
+    def onInput_onStop(self):
+        self.onUnload()    # it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped()    # activate the output of the box
