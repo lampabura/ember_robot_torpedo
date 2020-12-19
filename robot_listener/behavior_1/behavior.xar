@@ -137,16 +137,16 @@ class MyClass(GeneratedClass):
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
               <Input name="onStart" type="0" type_size="1" nature="1" inner="0" tooltip="Value to test." id="2" />
               <Output name="onDefault" type="1" type_size="1" nature="2" inner="0" tooltip="If the input value does not match any value set on the box." id="3" />
-              <Output name="haha" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="4" />
-              <Output name="best" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
-              <Output name="lemon" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="6" />
-              <Output name="ez" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="7" />
-              <Output name="wh" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="8" />
-              <Output name="cheat" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="9" />
-              <Output name="loser" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="10" />
-              <Output name="reported" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="11" />
-              <Output name="WIN" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="12" />
-              <Output name="LOSE" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="13" />
+              <Output name="output_1" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="4" />
+              <Output name="output_2" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="5" />
+              <Output name="output_3" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="6" />
+              <Output name="output_4" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="7" />
+              <Output name="output_5" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="8" />
+              <Output name="output_6" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="9" />
+              <Output name="output_7" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="10" />
+              <Output name="output_8" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="11" />
+              <Output name="output_9" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="12" />
+              <Output name="output_10" type="0" type_size="1" nature="2" inner="0" tooltip="This IO has been automatically added by box. Read box tooltip for more information." id="13" />
             </Box>
             <Box name="Haha" id="2" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="690" y="11">
               <bitmap>media/images/box/movement/move.png</bitmap>
@@ -3115,7 +3115,7 @@ class MyClass(GeneratedClass):
                 </BehaviorLayer>
               </Timeline>
             </Box>
-            <Box name="Python Script" id="13" localization="8" tooltip="This box contains a basic python script and can be used to create any python script box you would like.&#x0A;&#x0A;To edit its script, double-click on it." x="106" y="400">
+            <Box name="Python Script" id="13" localization="8" tooltip="This box contains a basic python script and can be used to create any python script box you would like.&#x0A;&#x0A;To edit its script, double-click on it." x="145" y="345">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -3181,6 +3181,7 @@ class MyClass(GeneratedClass):
               <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+              <Output name="onMessage" type="3" type_size="1" nature="2" inner="0" tooltip="" id="5" />
             </Box>
             <Link inputowner="2" indexofinput="2" outputowner="3" indexofoutput="4" />
             <Link inputowner="6" indexofinput="2" outputowner="3" indexofoutput="6" />
@@ -3195,6 +3196,9 @@ class MyClass(GeneratedClass):
             <Link inputowner="13" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="0" indexofinput="4" outputowner="11" indexofoutput="4" />
             <Link inputowner="0" indexofinput="4" outputowner="12" indexofoutput="4" />
+            <Link inputowner="3" indexofinput="2" outputowner="13" indexofoutput="5" />
+            <Link inputowner="4" indexofinput="2" outputowner="13" indexofoutput="5" />
+            <Link inputowner="13" indexofinput="2" outputowner="4" indexofoutput="4" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
