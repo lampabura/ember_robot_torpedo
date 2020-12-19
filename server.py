@@ -6,9 +6,9 @@ from time import sleep
 
 HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
 PORT = 65432        # Port to listen on (non-privileged ports are > 1023)
-TIMEOUT = 10
-STEP_SLEEP_TIME = 3
-ROBOT_PORT = 65320
+TIMEOUT = 15
+STEP_SLEEP_TIME = 5
+ROBOT_PORT = 65215
 
 gameController = GameController(ROBOT_PORT)
 

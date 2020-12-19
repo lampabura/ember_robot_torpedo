@@ -6,9 +6,9 @@ from game_controller import GameController
 
 HOST = '127.0.0.1'  # The server's hostname or IP address
 PORT = 65432        # The port used by the server
-TIMEOUT = 10
-STEP_SLEEP_TIME = 3
-ROBOT_PORT = 65319
+TIMEOUT = 15
+STEP_SLEEP_TIME = 5
+ROBOT_PORT = 65216
 
 gameController = GameController(ROBOT_PORT)
 

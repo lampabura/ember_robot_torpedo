@@ -45,8 +45,8 @@ class RobotController:
         if self.port > 0:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 s.connect((ROBOT_HOST, self.port))
-                s.settimeout(3)
+                s.settimeout(20)
                 s.sendall(str.encode(message))
-                data = s.recv(1024)
+                data = s.recv(30)
                 s.close()
         
