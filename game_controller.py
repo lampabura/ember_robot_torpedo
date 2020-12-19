@@ -7,9 +7,9 @@ from robot_controller import RobotController
 
 class GameController:
     
-    def __init__(self):
+    def __init__(self,robot_port):
         self.game = Game()
-        self.robot = RobotController()
+        self.robot = RobotController(robot_port)
 
     def startGame(self):
         msg = Message()
@@ -49,8 +49,8 @@ class GameController:
 
             if self.game.isEnded():
                 print("I LOST")
+                self.robot.endingComment("I LOST")
                 self.game.ended()
-                self.robot.negativeFeedback(True)
                 return self.endGame()
 
             if isNegative: 
@@ -63,7 +63,7 @@ class GameController:
 
         if self.game.state == State.INGAME and msg.command == Command.YOUWIN:
             print("I WIN")
-            self.robot.positiveFeedback(True)
+            self.robot.endingComment("I WIN")
             self.game.ended()
 
     def isEnded(self):
