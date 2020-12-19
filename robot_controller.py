@@ -1,6 +1,9 @@
 
 from random import randrange
+import socket
 
+ROBOT_HOST = '127.0.0.1'  # The server's hostname or IP address
+ROBOT_PORT = 65318        # The port used by the server
 
 positive_comments = [
     "Haha",
@@ -17,6 +20,10 @@ negative_comments = [
 ]
 
 class RobotController:
+    def __init__(self,port):
+        super().__init__()
+        self.port = port
+
     def positiveFeedback(self, force=False):
         if randrange(0,100) < 40 or force:
             self.createComment(positive_comments)
@@ -27,5 +34,13 @@ class RobotController:
         
     def createComment(self, possibilities):
         index = randrange(0, len(possibilities))
-        print("RESPONSE: ", possibilities[index])
-        ##TODO call robot api
+        response = possibilities[index]
+        print("RESPONSE: ", response)
+        # Calling robot API
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((ROBOT_HOST, ROBOT_PORT))
+            s.settimeout(3)
+            s.sendall(str.encode(response))
+            data = s.recv(1024)
+            s.close()
+        
