@@ -3,7 +3,6 @@ from random import randrange
 import socket
 
 ROBOT_HOST = '127.0.0.1'  # The server's hostname or IP address
-ROBOT_PORT = 65318        # The port used by the server
 
 positive_comments = [
     "Haha",
@@ -37,10 +36,17 @@ class RobotController:
         response = possibilities[index]
         print("RESPONSE: ", response)
         # Calling robot API
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.connect((ROBOT_HOST, ROBOT_PORT))
-            s.settimeout(3)
-            s.sendall(str.encode(response))
-            data = s.recv(1024)
-            s.close()
+        self.sendMessageToRobot(response)
+
+    def endingComment(self,message):
+        self.sendMessageToRobot(message)
+
+    def sendMessageToRobot(self,message):
+        if self.port > 0:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.connect((ROBOT_HOST, self.port))
+                s.settimeout(3)
+                s.sendall(str.encode(message))
+                data = s.recv(1024)
+                s.close()
         
